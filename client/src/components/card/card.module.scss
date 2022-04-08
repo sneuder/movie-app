@@ -1,0 +1,13 @@
+.containerPopularMovie {
+  .containerImage {
+    width: 100%;
+    position: relative;
+
+    .image {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+}

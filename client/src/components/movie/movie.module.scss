@@ -1,0 +1,116 @@
+.background {
+  background-color: #1c1c1c;
+  max-width: 100vw;
+  min-height: 100vh;
+
+  .backgroundPicture {
+    width: 100%;
+    height: 300px;
+
+    .background {
+      min-width: 0;
+      min-height: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .container {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    width: 100%;
+    height: 80%;
+    padding: 3rem 5rem 0 0;
+
+    .containerImage {
+      width: 30%;
+      padding: 0 2rem;
+
+      .image {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+      }
+    }
+
+    .containerInfo {
+      width: 65%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      color: #ffffff;
+
+      .title {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .overview {
+        font-weight: 300;
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+      }
+
+      .containerFavorite {
+        .icon {
+          width: 2rem;
+          height: 2rem;
+          margin-right: 1rem;
+          color: #8b8b8b;
+          cursor: pointer;
+        }
+      }
+
+      .list {
+        margin-top: 2rem;
+        list-style-position: inside;
+      }
+
+      .list > li {
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  .reviewsContainer {
+    padding: 2rem;
+    color: #ffffff;
+
+    .containerReview {
+      margin-bottom: 5rem;
+      display: flex;
+
+      .avatar {
+        width: 5rem;
+        height: 5rem;
+        margin-right: 2rem;
+        border-radius: 5px;
+        object-fit: cover;
+      }
+
+      .reviewContent {
+
+        .username {
+          font-size: 1.5rem;
+          font-weight: 600;
+          margin-bottom: 1rem;
+        }
+
+        .rating {
+          margin-bottom: 1rem;
+        }
+
+        .textReview {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
