@@ -1,0 +1,28 @@
+import React, { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import Card from "../card/card";
+import { searchingMovies } from "../../utils/utils";
+
+import style from "./foundMovies.module.scss";
+
+function FoundMovies() {
+  const [name, setName] = useSearchParams();
+
+  const [movies, setMovies] = useState([]);
+  useEffect(() => {
+    const query = name.get("name");
+    searchingMovies(query).then((result) => setMovies(result));
+  });
+
+  return (
+    <div className={style.background}>
+      <div className={style.containerPopularMovies}>
+        {movies.map((movie) => (
+          <Card key={movie.id} movie={movie} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default FoundMovies;

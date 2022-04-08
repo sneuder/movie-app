@@ -58,6 +58,12 @@ export async function getFavoriteMovies() {
   return getFavoriteMovies.data;
 }
 
+export async function searchingMovies(name){
+  if(name == null || name == undefined) return "";
+  const foundMovie = await axios.get(`http://localhost:3001/search?name=${name}`);
+  return foundMovie.data.results;
+}
+
 // export async function guestSession() {
 //   if (window.localStorage.getItem("guest_session_id") !== null) return;
 //   const guest = await axios(
