@@ -44,14 +44,17 @@ export async function removeFromFavorite(id) {
     `http://localhost:3001/account/favorite`,
     noFavorite
   );
-  return filteredMovies.data;
+
+  const getFavoriteMovies = await axios.get(
+    `http://localhost:3001/account/favorite/movies`
+  );
+  return getFavoriteMovies.data;
 }
 
 export async function getFavoriteMovies() {
   const getFavoriteMovies = await axios.get(
     `http://localhost:3001/account/favorite/movies`
   );
-  console.log(getFavoriteMovies.data);
   return getFavoriteMovies.data;
 }
 
@@ -68,7 +71,7 @@ export async function getFavoriteMovies() {
 // }
 
 export function formattingAvatar(avatar) {
-  if (avatar === null)
+  if (avatar === null || avatar === undefined)
     return "https://i.pinimg.com/564x/49/3f/a0/493fa0f13970ab3ef29375669f670451.jpg";
 
   if (!avatar.includes("https://"))

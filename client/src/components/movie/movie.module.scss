@@ -62,6 +62,11 @@
           margin-right: 1rem;
           color: #8b8b8b;
           cursor: pointer;
+          transition: 0.3s all ease;
+        }
+
+        .icon:hover {
+          color: tomato;
         }
       }
 

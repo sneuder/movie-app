@@ -11,7 +11,7 @@ router.get("/authentication/guest_session/new", async (req, res) => {
   const guest = await axios(
     `https://api.themoviedb.org/3/authentication/guest_session/new?api_key=${API_KEY}`
   );
-  res.send(guest.data);
+  res.json(guest.data);
 });
 
 // Get popular movies
@@ -20,7 +20,6 @@ router.get("/movie/popular", async (req, res) => {
     const popularMovies = await axios.get(
       `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
     );
-    console.log("working");
     res.json(popularMovies.data);
   } catch (e) {
     console.log(e);
@@ -47,7 +46,7 @@ router.get("/movie/:movie_id/reviews", async (req, res) => {
     const movieReviews = await axios.get(
       `https://api.themoviedb.org/3/movie/${movie_id}/reviews?api_key=${API_KEY}&language=en-US&page=1`
     );
-    res.send(movieReviews.data);
+    res.json(movieReviews.data);
   } catch (e) {
     console.log(e);
   }
@@ -62,6 +61,8 @@ router.post("/account/favorite", async (req, res) => {
       `https://api.themoviedb.org/3/account/{account_id}/favorite?api_key=${API_KEY}&session_id=${SESSION_ID}`,
       favorite
     );
+
+    res.json("Added to favorite");
   } catch (e) {
     console.log(e);
   }

@@ -16,7 +16,7 @@ function Home() {
     <div className={style.background}>
       <div className={style.containerPopularMovies}>
         {popularMovies.map((movie) => (
-          <Card movie={movie} />
+          <Card key={movie.id} movie={movie} />
         ))}
       </div>
     </div>

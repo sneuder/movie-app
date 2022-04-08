@@ -8,19 +8,21 @@ import style from "./favorites.module.scss";
 function Favorites() {
   const [favorites, setFavorites] = useState([]);
   useEffect(() => {
-    getFavoriteMovies().then((data) => setFavorites(data));
-  }, [favorites]);
+    getFavoriteMovies().then((data) => setFavorites([...data]));
+  }, []);
 
   return (
     <div className={style.background}>
       <div className={style.grid}>
         {favorites?.map((movie) => (
-          <div className={style.individualCard}>
+          <div key={movie.id} className={style.individualCard}>
             <Card movie={movie} />
             <button
               className={style.removeFavorite}
               onClick={() =>
-                removeFromFavorite(movie.id).then((data) => setFavorites(data))
+                removeFromFavorite(movie.id).then((data) => {
+                  setFavorites([...data]);
+                })
               }
             >
               Remove
