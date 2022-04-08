@@ -19,8 +19,12 @@ This app is developed to consume a api which has information about movies. An Ap
   
   <code>$ npm start</code>
   
+   - In casy api process does not work, try <code>$ node index.js</code>
+  
 - Got to client folder and open terminal to intall dependencies
 
   <code>$ npm install</code>
   
   <code>$ npm start</code>
+  
+ 
