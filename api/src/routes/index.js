@@ -56,7 +56,6 @@ router.get("/movie/:movie_id/reviews", async (req, res) => {
 router.post("/account/favorite", async (req, res) => {
   try {
     const favorite = req.body;
-    console.log(favorite);
     await axios.post(
       `https://api.themoviedb.org/3/account/{account_id}/favorite?api_key=${API_KEY}&session_id=${SESSION_ID}`,
       favorite

@@ -31,9 +31,9 @@
     }
   }
 
-  .buttonsGroup {
+  .buttonsGroup, {
     display: flex;
-    .containerFavorite {
+    .containerFavorite, .currentPath  {
       background: #4a4a4a;
       color: #fff;
       margin-left: 1rem;
@@ -45,5 +45,11 @@
         margin-right: 0.5rem;
       }
     }
+
+    .currentPath {
+      background: #BC2C1A;
+    }
   }
+
+  
 }

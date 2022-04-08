@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faHouse } from "@fortawesome/free-solid-svg-icons";
@@ -17,19 +17,29 @@ function Bar() {
         <input className={style.searchButton} type="submit" value="Search" />
       </div>
       <div className={style.buttonsGroup}>
-        <Link to="/">
-          <div className={style.containerFavorite}>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? style.currentPath : style.containerFavorite
+          }
+        >
+          <div>
             <FontAwesomeIcon icon={faHouse} className={style.icon} />
             Home
           </div>
-        </Link>
+        </NavLink>
 
-        <Link to="/favorites">
-          <div className={style.containerFavorite}>
+        <NavLink
+          to="/favorites"
+          className={({ isActive }) =>
+            isActive ? style.currentPath : style.containerFavorite
+          }
+        >
+          <div>
             <FontAwesomeIcon icon={faHeart} className={style.icon} />
             Favorites
           </div>
-        </Link>
+        </NavLink>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getFavoriteMovies, removeFromFavorite } from "../../utils/utils.js";
+import { getFavoriteMovies, removeFromFavorite, scrollBar } from "../../utils/utils.js";
 
 import Card from "../card/card.jsx";
 
@@ -8,6 +8,7 @@ import style from "./favorites.module.scss";
 function Favorites() {
   const [favorites, setFavorites] = useState([]);
   useEffect(() => {
+    scrollBar();
     getFavoriteMovies().then((data) => setFavorites([...data]));
   }, []);
 
