@@ -13,6 +13,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import style from "./movie.module.scss";
 
+import Loader from "../loader/loader.jsx";
+
 function Movie() {
   const [movie, setMovie] = useState();
   const id = useParams().id;
@@ -28,12 +30,14 @@ function Movie() {
     });
 
     const favorite = document.querySelector("#favoriteIcon");
-    favorite.addEventListener("click", () => {
+    favorite?.addEventListener("click", () => {
       addToFavorite(id);
     });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [movie]);
+
+  if(!movie) return <Loader />;
 
   return (
     <div className={style.background}>
