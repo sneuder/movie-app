@@ -37,19 +37,27 @@ function Movie() {
 
   return (
     <div className={style.background}>
-      <div className={style.backgroundPicture}>
-        <img
-          className={style.background}
-          src={movie && `https://image.tmdb.org/t/p/w500${movie?.film.backdrop_path}`}
-          alt=""
-        />
-      </div>
+      {movie?.film.backdrop_path && (
+        <div className={style.backgroundPicture}>
+          <img
+            className={style.background}
+            src={
+              movie &&
+              `https://image.tmdb.org/t/p/w500${movie?.film.backdrop_path}`
+            }
+            alt=""
+          />
+        </div>
+      )}
 
       <div className={style.container}>
         <div className={style.containerImage}>
           <img
             className={style.image}
-            src={movie && `https://image.tmdb.org/t/p/w500${movie?.film.poster_path}`}
+            src={
+              movie &&
+              `https://image.tmdb.org/t/p/w500${movie?.film.poster_path}`
+            }
             alt=""
           />
         </div>
