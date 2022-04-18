@@ -15,9 +15,17 @@ function Home() {
   return (
     <div className={style.background}>
       <div className={style.containerPopularMovies}>
-        {popularMovies.map((movie) => (
-          <Card key={movie.id} movie={movie} />
-        ))}
+        {popularMovies.map((movie) => {
+          if (movie.poster_path) {
+            return (
+              <Card
+                key={movie.id}
+                movie={movie}
+                className={style.containerPopularMovie}
+              />
+            );
+          }
+        })}
       </div>
     </div>
   );

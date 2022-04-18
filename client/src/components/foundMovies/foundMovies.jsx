@@ -6,7 +6,7 @@ import { searchingMovies } from "../../utils/utils";
 import style from "./foundMovies.module.scss";
 
 function FoundMovies() {
-  const [name, setName] = useSearchParams();
+  const [name] = useSearchParams();
 
   const [movies, setMovies] = useState([]);
   useEffect(() => {
@@ -17,9 +17,17 @@ function FoundMovies() {
   return (
     <div className={style.background}>
       <div className={style.containerPopularMovies}>
-        {movies.map((movie) => (
-          <Card key={movie.id} movie={movie} />
-        ))}
+      {movies.map((movie) => {
+          if (movie.poster_path) {
+            return (
+              <Card
+                key={movie.id}
+                movie={movie}
+                className={style.containerPopularMovie}
+              />
+            );
+          }
+        })}
       </div>
     </div>
   );

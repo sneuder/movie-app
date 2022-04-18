@@ -40,7 +40,7 @@ export async function removeFromFavorite(id) {
     favorite: false,
   };
 
-  const filteredMovies = await axios.post(
+  await axios.post(
     `http://localhost:3001/account/favorite`,
     noFavorite
   );
@@ -48,6 +48,7 @@ export async function removeFromFavorite(id) {
   const getFavoriteMovies = await axios.get(
     `http://localhost:3001/account/favorite/movies`
   );
+  
   return getFavoriteMovies.data;
 }
 
@@ -59,7 +60,7 @@ export async function getFavoriteMovies() {
 }
 
 export async function searchingMovies(name){
-  if(name == null || name == undefined) return "";
+  if(name === null || name === undefined) return "";
   const foundMovie = await axios.get(`http://localhost:3001/search?name=${name}`);
   return foundMovie.data.results;
 }

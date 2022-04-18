@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 
-import { guestSession, scrollBar } from "./utils/utils.js";
+import { scrollBar } from "./utils/utils.js";
 
 import Bar from "./components/bar/bar.jsx";
 import Home from "./components/home/home.jsx";

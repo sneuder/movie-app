@@ -31,6 +31,8 @@ function Movie() {
     favorite.addEventListener("click", () => {
       addToFavorite(id);
     });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

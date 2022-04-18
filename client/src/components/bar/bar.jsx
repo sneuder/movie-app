@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,6 +7,16 @@ import style from "./bar.module.scss";
 
 function Bar() {
   const [name, setName] = useState("");
+
+  useEffect(() => {
+    const element = document.querySelector("#searchInput");
+    element.addEventListener("keyup", function (event) {
+      event.preventDefault();
+      if (event.keyCode === 13) {
+        document.getElementById("searchButton").click();
+      }
+    })
+  }, []);
 
   return (
     <div className={style.containerBar}>
@@ -18,7 +28,7 @@ function Bar() {
           onChange={(event) => setName(event.target.value)}
           id="searchInput"
         />
-        <Link className={style.searchButton} to={`/search?name=${name}`}>
+        <Link className={style.searchButton} to={`/search?name=${name}`} id="searchButton">
           Search
         </Link>
       </div>
