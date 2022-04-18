@@ -2,19 +2,19 @@ import axios from "axios";
 
 export async function getPopularMovies() {
   const getPopularMovies = await axios.get(
-    "http://localhost:3001/movie/popular"
+    "https://movie-app-deployment.herokuapp.com/movie/popular"
   );
   return getPopularMovies.data.results;
 }
 
 export async function getMovieDetails(id) {
-  const getMovieDetails = await axios.get(`http://localhost:3001/movie/${id}`);
+  const getMovieDetails = await axios.get(`https://movie-app-deployment.herokuapp.com/movie/${id}`);
   return getMovieDetails.data;
 }
 
 export async function getMovieReviews(id) {
   const getMovieReviews = await axios.get(
-    `http://localhost:3001/movie/${id}/reviews`
+    `https://movie-app-deployment.herokuapp.com/movie/${id}/reviews`
   );
   return getMovieReviews.data.results;
 }
@@ -27,7 +27,7 @@ export async function addToFavorite(id) {
   };
 
   const addToFavorite = await axios.post(
-    `http://localhost:3001/account/favorite`,
+    `https://movie-app-deployment.herokuapp.com/account/favorite`,
     favorite
   );
   return addToFavorite.data;
@@ -41,12 +41,12 @@ export async function removeFromFavorite(id) {
   };
 
   await axios.post(
-    `http://localhost:3001/account/favorite`,
+    `https://movie-app-deployment.herokuapp.com/account/favorite`,
     noFavorite
   );
 
   const getFavoriteMovies = await axios.get(
-    `http://localhost:3001/account/favorite/movies`
+    `https://movie-app-deployment.herokuapp.com/account/favorite/movies`
   );
   
   return getFavoriteMovies.data;
@@ -54,21 +54,21 @@ export async function removeFromFavorite(id) {
 
 export async function getFavoriteMovies() {
   const getFavoriteMovies = await axios.get(
-    `http://localhost:3001/account/favorite/movies`
+    `https://movie-app-deployment.herokuapp.com/account/favorite/movies`
   );
   return getFavoriteMovies.data;
 }
 
 export async function searchingMovies(name){
   if(name === null || name === undefined) return "";
-  const foundMovie = await axios.get(`http://localhost:3001/search?name=${name}`);
+  const foundMovie = await axios.get(`https://movie-app-deployment.herokuapp.com/search?name=${name}`);
   return foundMovie.data.results;
 }
 
 // export async function guestSession() {
 //   if (window.localStorage.getItem("guest_session_id") !== null) return;
 //   const guest = await axios(
-//     `http://localhost:3001/authentication/guest_session/new`
+//     `https://movie-app-deployment.herokuapp.com/authentication/guest_session/new`
 //   );
 
 //   window.localStorage.setItem(
