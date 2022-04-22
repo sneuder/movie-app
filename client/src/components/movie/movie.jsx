@@ -14,6 +14,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import style from "./movie.module.scss";
 
 import Loader from "../loader/loader.jsx";
+import swal from 'sweetalert';
 
 function Movie() {
   const [movie, setMovie] = useState();
@@ -32,6 +33,7 @@ function Movie() {
     const favorite = document.querySelector("#favoriteIcon");
     favorite?.addEventListener("click", () => {
       addToFavorite(id);
+      swal("Movie added to favorites!", "Click the button to continue", "success");
     });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

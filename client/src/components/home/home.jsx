@@ -4,17 +4,17 @@ import { useEffect, useState } from "react";
 import { getPopularMovies } from "../../utils/utils.js";
 
 import Card from "../card/card.jsx";
-import style from "./home.module.scss";
-
 import Loader from "../loader/loader.jsx";
+
+import style from "./home.module.scss";
 
 function Home() {
   const [popularMovies, setPopularMovies] = useState([]);
   useEffect(() => {
-    getPopularMovies().then((result) => setPopularMovies(result));
+    getPopularMovies().then((result) => setPopularMovies([...result]));
   }, []);
 
-  if(!popularMovies) return <Loader />;
+  if(popularMovies.length === 0) return <Loader />;
 
   return (
     <div className={style.background}>
