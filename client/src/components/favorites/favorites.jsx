@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getFavoriteMovies, removeFromFavorite, scrollBar } from "../../utils/utils.js";
 
 import Card from "../card/card.jsx";
+import swal from 'sweetalert';
 
 import style from "./favorites.module.scss";
 
@@ -22,6 +23,7 @@ function Favorites() {
               className={style.removeFavorite}
               onClick={() =>
                 removeFromFavorite(movie.id).then((data) => {
+                  swal("Movie removed from favorites!", "Click the button to continue", "success");
                   setFavorites([...data]);
                 })
               }
